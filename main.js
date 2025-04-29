@@ -44,3 +44,13 @@ cardWomenDay.addEventListener("click", () => {
         }, 1000)
     }
 })
+
+// Thêm vào đầu file main.js
+const backgroundMusic = document.getElementById('backgroundMusic');
+
+// Thêm vào sự kiện click nút mở thiệp
+openBtn.addEventListener("click", () => {
+    document.querySelector(".cardWomenDay").classList.add("active")
+    document.querySelector(".container").classList.add("close")
+    backgroundMusic.play().catch(e => console.log("Lỗi phát nhạc:", e));
+})

@@ -64,11 +64,34 @@
         <!-- Closing the container div -->
     </div>
 
-    <!-- add autostart music -->
-    <audio id="audio" controls autoplay loop>
-        <source src="./You.mp3" type="audio/mpeg">
-
     <script src="./main.js"></script>
+    
+    <!-- add autostart music -->
+    <audio id="backgroundMusic" loop>
+        <source src="./You.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        // Thêm đoạn code này vào cuối file, trước </body>
+        document.addEventListener('DOMContentLoaded', function() {
+        const audio = document.getElementById('backgroundMusic');
+        
+        // Thử phát nhạc khi trang load
+        function tryPlayAudio() {
+            audio.play().catch(error => {
+            // Nếu bị chặn, sẽ phát khi có tương tác đầu tiên
+            document.body.addEventListener('click', function firstClick() {
+                audio.play();
+                document.body.removeEventListener('click', firstClick);
+            });
+            });
+        }
+        
+        // Đợi 1 chút sau khi trang load rồi thử phát
+        setTimeout(tryPlayAudio, 500);
+        });
+    </script>
+
 </body>
 
 </html>
