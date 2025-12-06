@@ -54,3 +54,5 @@ openBtn.addEventListener("click", () => {
     document.querySelector(".container").classList.add("close")
     backgroundMusic.play().catch(e => console.log("Lỗi phát nhạc:", e));
 })
+
+
